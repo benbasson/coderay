@@ -1,26 +1,26 @@
 module CodeRay
 module Scanners
   
-  # by Josh Goebel
-  class SQL < Scanner
+  # by Ben Basson (majority copied and pasted from Josh Goebel's sql scanner)
+  class PLSQL < Scanner
     
-    register_for :sql
+    register_for :plsql
     
     KEYWORDS = %w(
       all and any as before begin between by case check collate
       each else end exists identified
       for foreign from full group having if in inner is join
       like not of on or order outer over references
-      then to union using values when where
-      left right distinct multiset intersect minus
-      insert into select update set
+      then to union using values when where bulk collect 
+      left right distinct multiset intersect minus first last loop
+      insert into select update set bulk collect
       database databases table tables column columns fields index constraint
       constraints transaction function procedure row key view trigger user type
     )
 
     COMMANDS = %w(
-      add alter comment create delete drop grant 
-      show prompt begin commit rollback replace truncate
+      add alter comment create delete drop grant
+      show prompt begin commit rollback replace truncate 
     )
     
     PREDEFINED_TYPES = %w(
