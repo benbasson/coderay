@@ -16,13 +16,10 @@ module Scanners
       insert into select update set bulk collect
       database databases table tables column columns fields index constraint
       constraints transaction function procedure row key view trigger user type
+      add alter comment create delete drop grant
+      show prompt begin commit rollback replace truncate return
     )
 
-    COMMANDS = %w(
-      add alter comment create delete drop grant
-      show prompt begin commit rollback replace truncate 
-    )
-    
     PREDEFINED_TYPES = %w(
       char varchar varchar2 enum binary text tinytext mediumtext
       longtext blob tinyblob mediumblob longblob timestamp
@@ -31,19 +28,18 @@ module Scanners
       bool boolean hex bin oct
     )
     
-    PREDEFINED_FUNCTIONS = %w( sum cast substring abs pi count min max avg now )
+    PREDEFINED_FUNCTIONS = %w( sum cast substring abs pi count min max avg now nvl coalesce )
     
     DIRECTIVES = %w( 
       auto_increment unique default charset initially deferred
       deferrable cascade immediate read write asc desc after
-      primary foreign return engine
+      primary foreign engine
     )
     
     PREDEFINED_CONSTANTS = %w( null true false )
     
     IDENT_KIND = WordList::CaseIgnoring.new(:ident).
       add(KEYWORDS, :keyword).
-      add(COMMANDS, :class).
       add(PREDEFINED_TYPES, :predefined_type).
       add(PREDEFINED_CONSTANTS, :predefined_constant).
       add(PREDEFINED_FUNCTIONS, :predefined).
