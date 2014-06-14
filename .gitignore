@@ -12,3 +12,5 @@ test/executable/source.rb.html
 test/executable/source.rb.json
 test/scanners
 old-stuff
+*.project
+/.idea/
