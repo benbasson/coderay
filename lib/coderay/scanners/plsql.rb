@@ -28,7 +28,10 @@ module Scanners
       bool boolean hex bin oct
     )
     
-    PREDEFINED_FUNCTIONS = %w( sum cast substring abs pi count min max avg now nvl coalesce )
+    PREDEFINED_FUNCTIONS = %w(
+      sum cast substring abs pi count min max avg now nvl coalesce
+      upper lower initcap decode translate
+    )
     
     DIRECTIVES = %w( 
       auto_increment unique default charset initially deferred
